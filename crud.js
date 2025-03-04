@@ -41,12 +41,36 @@ app.post("/",(req,res)=>{
         msg:"done"
     })
 })
-app.put("/",(req,res)=>{
+function allKidneysHealthy()
+{
+    let allhealthy=true;
     for(let i=0;i<users[0].kidney.length;i++)
     {
-        users[0].kidney[i].healthy=true;
+        if(!users[0].kidney[i].healthy)
+        {
+            allhealthy=false;
+        }
     }
-    res.json({});
+    return allhealthy;
+}k
+app.put("/",(req,res)=>{
+    if(!allKidneysHealthy())
+    {
+        for(let i=0;i<users[0].kidney.length;i++)
+        {
+            users[0].kidney[i].healthy=true;
+        }
+        res.json({
+            msg:"all are healthy now"
+        });
+
+    }   
+    else
+    {
+        res.status(409).json({
+            msg:"all are healthy and stll you try to make healthy"
+        })
+    }
 })
 app.delete("/",(req,res)=>{
      const newKidney=[];
