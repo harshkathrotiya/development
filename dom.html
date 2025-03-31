@@ -1,0 +1,21 @@
+<html>
+<head>
+    <script>
+        function sumoftwo()
+        {
+            let a=document.getElementById("first");
+            let b=document.getElementById("second");
+            let ans=document.getElementById("ans");
+            ans.innerText=parseInt(a.value)+parseInt(b.value);
+        
+        }
+    </script>
+</head>
+<body>
+    
+    <input type="text" name="" id="first" placeholder="first number"><br>
+    <input type="text" name="" id="second" placeholder="second number"><br>
+    <button onclick="sumoftwo()">calculate sum</button>
+    <div id="ans"></div>
+</body>
+</html>

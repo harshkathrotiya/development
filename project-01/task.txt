@@ -1,0 +1,7 @@
+build rest apis
+get/users-list all users 
+get/user/1 -give onl one user
+post/users -create new user
+patch /user/id -update user
+
+delete/users/1 -delete the user with id 1 

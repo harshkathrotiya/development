@@ -1,0 +1,36 @@
+<html>
+<script>
+function calculateSum(){
+    a=document.getElementById("first").value;
+    b=document.getElementById("second").value;
+    const ans=fetch("http://localhost:3000/sum?a="+a+"&b="+b);
+    ans.then(function(res){
+        res.text().then(function(ans){
+            document.getElementById("finalsum").innerHTML=ans;
+        });
+    })
+}
+async function calculateInterest(){
+    p=document.getElementById("principle").value;
+    r=document.getElementById("rate").value;
+    t=document.getElementById("time").value;
+   const ans=await fetch("http://localhost:3000/interest?principle="+p+"&rate="+r+"&time="+t);
+   const an=await ans.text();
+   document.getElementById("finalinterest").innerHTML=an;
+
+}
+</script>
+<body>
+    <h2>calculate sum</h2>
+    <input type="text" name=""  id="first" placeholder="first number"><br>
+    <input type="text" name=""  id="second" placeholder="second number"><br>
+    <button onclick="calculateSum()">calculate sum</button>
+    <div id="finalsum"></div>
+    <h2>calculate interest</h2>
+    <input type="text" name="" onchange="calculateInterest" id="principle" placeholder="principle"><br>
+    <input type="text" name=""  id="rate" placeholder="rate"><br>
+    <input type="text" name=""  id="time" placeholder="time"><br>
+    <button onclick="calculateInterest()">calculate interest</button>
+    <div id="finalinterest"></div>
+</body>
+</html>
