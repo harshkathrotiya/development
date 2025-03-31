@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 
 // Connect to MongoDB with error handling
-mongoose.connect("mongodb+srv://hak:hakhak@cluster0.9p7ey.mongodb.net/yourDatabaseName", {
+mongoose.connect("", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
